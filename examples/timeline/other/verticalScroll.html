@@ -1,10 +1,10 @@
 <html>
 <head>
-  <title>Timeline | A lot of grouped data</title>
+  <title>Timeline | Vertical Scroll Option</title>
 
-  <script src="../../../docs/js/jquery.min.js"></script>
   <script src="../../../dist/vis.js"></script>
-  <link href="../../../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+  <link href="../../../dist/vis.css" rel="stylesheet" type="text/css" />
+
 
   <style type="text/css">
     body {
@@ -16,14 +16,8 @@
 </head>
 
 <body onresize="/*timeline.checkResize();*/">
-<h1>Timeline vertical visibility</h1>
 
-
-<button onclick="showVisibleItems()">Show current visible items</button>
-<div>
-  <h2>visible items:</h2>
-  <h3 id="visibleItemsContainer"></h3>
-</div>
+<h1>Timeline vertical scroll option</h1>
 
 <div id="mytimeline"></div>
 <br>
@@ -72,7 +66,6 @@
   // create items
   var items = new vis.DataSet();
 
-  var types = [ 'box', 'point', 'range', 'background']
   var order = 1;
   var truck = 1;
   for (var j = 0; j < 25; j++) {
@@ -84,14 +77,11 @@
       date.setHours(date.getHours() + 2 + Math.floor(Math.random()*4));
       var end = new Date(date);
 
-      var type = types[Math.floor(4 * Math.random())]
-
       items.add({
         id: order,
         group: truck,
         start: start,
         end: end,
-        type: type,
         content: 'Order ' + order
       });
 
@@ -103,6 +93,8 @@
   // specify options
   var options = {
     stack: true,
+    verticalScroll: true,
+    zoomKey: 'ctrlKey',
     maxHeight: 400,
     start: new Date(),
     end: new Date(1000*60*60*24 + (new Date()).valueOf()),
@@ -120,6 +112,7 @@
   timeline = new vis.Timeline(container, null, options);
   timeline.setGroups(groups);
   timeline.setItems(items);
+
 </script>
 
 </body>
