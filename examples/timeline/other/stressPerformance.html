@@ -23,7 +23,7 @@
 <script type="text/babel">
   var timeline
   var now = moment();
-  var groupCount = 20;
+  var groupCount = 50;
   var itemCount = 2000;
 
   // create a data set with groups
@@ -35,8 +35,8 @@
     });
   }
 
-  // var types = ['point', 'range', 'box', 'background']
-  var types = ['range']
+  var types = ['point', 'range', 'box', 'background']
+  // var types = ['range']
   
   // create a dataset with items
   var items = new vis.DataSet();
@@ -75,7 +75,8 @@
   var options = {
     width: '100%',
     height: '500px',
-    stack: false,
+    // verticalScroll: true,
+    // stack: false,
     showCurrentTime: false,
     selectable: true,
     editable: true,
