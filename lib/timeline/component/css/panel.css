@@ -84,12 +84,12 @@
   width: 3%;
   height: 100%;
   z-index: 99;
-  position: absolute
+  position: absolute;
+  top: 0;
 }
 
 .panningZoneLeft{
   left: 0;
-
 }
 
 .panningZoneRight{
